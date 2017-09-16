@@ -1,7 +1,7 @@
 create database trzy;
 use trzy;
 drop table Klienci;
-#drop table Klienci;
+drop table Klienci;
 drop table Opiekunowie;
 
 create table Klienci (
