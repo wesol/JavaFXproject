@@ -1,13 +1,15 @@
 create database projektPWN DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 use projektPWN;
 #drop database projektPWN;
-
+#drop table users;
+#drop table baza_pytan;
+#drop table ankiety;
 CREATE TABLE users (
     id_u INT AUTO_INCREMENT,
     imie VARCHAR(25) NOT NULL,
     nazwisko VARCHAR(25) NOT NULL,
     email VARCHAR(25) NOT NULL,
-    pesel VARCHAR(11) NOT NULL,
+    haslo VARCHAR(25) NOT NULL,
     uprawnienia VARCHAR(10) DEFAULT 'user',
     PRIMARY KEY (id_u)
 );
@@ -16,12 +18,12 @@ CREATE TABLE users (
 
 CREATE TABLE baza_pytan (
     id_p INT AUTO_INCREMENT,
-    pytanie VARCHAR(160),
-    odp_poprawna VARCHAR(100),
-    odp_n1 VARCHAR(100),
-    odp_n2 VARCHAR(100),
-    odp_n3 VARCHAR(100),
-    zakres varchar (35),
+    pytanie text,
+    odp_poprawna text,
+    odp_n1 text,
+    odp_n2 text,
+    odp_n3 text,
+    zakres text ,
     PRIMARY KEY (id_p)
 );
 #drop table pacjenci;
@@ -37,16 +39,17 @@ CREATE TABLE ankiety(
     ilosc_fe int,
     ilosc_spring int,
     PRIMARY KEY (id_a),
-    foreign key (id_l) references lekarze (id_l),
-    foreign key (id_p) references pacjenci (id_p)
+    foreign key (id_u) references users (id_u),
+    foreign key (id_p) references baza_pytan (id_p)
 );
 
 
+
+insert into users (imie, nazwisko , email,haslo,uprawnienia) values ('Mariusz', 'Kowalski','MK@gmail.com','1234','user');
+insert into users (imie, nazwisko , email,haslo,uprawnienia) values ('Marek', 'Tomasik','MT@gmail.com','1234','admin');
+
+
 /*
-insert into lekarze (name, last , cellphone) values ('Mariusz', 'Kowalski','667 668 633');
-
-
-
 Create view przyszle_wizyty as select id_w, date_format(date,'%Y-%m-%d') as date, time_format(time,'%H:%m') as hour, concat_ws(' ',lekarze.last,lekarze.name) as lekarz, concat_ws(' ',pacjenci.last,pacjenci.name) as pacjent 
 	from 
     wizyty
