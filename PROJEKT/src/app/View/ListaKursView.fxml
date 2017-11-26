@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="381.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.ListakursView">
+   <children>
+      <TableView fx:id="table_view" layoutX="74.0" layoutY="35.0" prefHeight="278.0" prefWidth="431.0">
+        <columns>
+          <TableColumn fx:id="col_imie" prefWidth="75.0" text="Imie" />
+          <TableColumn fx:id="col_nazwisko" prefWidth="63.0" text="Nawisko" />
+            <TableColumn fx:id="col_mail" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="col_haslo" prefWidth="68.0" text="Haslo" />
+            <TableColumn fx:id="col_wynik" prefWidth="75.0" text="Wynik" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_usun" layoutX="547.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#btnSelectAction" text="Usuń z bazy" />
+      <Button fx:id="btn_usun1" layoutX="74.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#btnSelectAction" text="Wyjdź" />
+      <Button fx:id="btn_usun11" layoutX="138.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#btnSelectAction" text="Wstecz" />
+   </children>
+</AnchorPane>

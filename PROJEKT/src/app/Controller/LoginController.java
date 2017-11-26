@@ -1,4 +1,4 @@
-package app.Controler;
+package app.Controller;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

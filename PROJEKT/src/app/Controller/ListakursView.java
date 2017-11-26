@@ -1,4 +1,4 @@
-package app.Controler;
+package app.Controller;
 
 import java.io.IOException;
 import java.sql.Connection;

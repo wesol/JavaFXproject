@@ -2,14 +2,16 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="254.0" layoutY="14.0" text="Dodanie pytania" underline="true">
+      <Label contentDisplay="CENTER" layoutX="238.0" layoutY="14.0" text="Dodanie pytania" underline="true">
          <font>
             <Font size="18.0" />
          </font>
@@ -24,8 +26,24 @@
       <TextArea fx:id="ta_bledna2" layoutX="19.0" layoutY="323.0" prefHeight="40.0" prefWidth="567.0" promptText="Wprowadź" wrapText="true" />
       <Label layoutX="20.0" layoutY="381.0" prefHeight="17.0" prefWidth="262.0" text="Błędna odpowiedź nr 3" />
       <TextArea fx:id="ta_bledna3" layoutX="20.0" layoutY="406.0" prefHeight="40.0" prefWidth="567.0" promptText="Wprowadź" wrapText="true" />
-      <Button fx:id="btn_zatwierdz" layoutX="86.0" layoutY="466.0" mnemonicParsing="false" text="Wstecz" />
-      <Button fx:id="btn_wtecz" layoutX="518.0" layoutY="466.0" mnemonicParsing="false" text="Zatwierdź" />
-      <Button fx:id="btn_wyjdz" layoutX="20.0" layoutY="466.0" mnemonicParsing="false" text="Wyjdź" />
+      <Button fx:id="btn_zatwierdz" layoutX="87.0" layoutY="587.0" mnemonicParsing="false" text="Wstecz" />
+      <Button fx:id="btn_wtecz" layoutX="519.0" layoutY="587.0" mnemonicParsing="false" text="Zatwierdź" />
+      <Button fx:id="btn_wyjdz" layoutX="21.0" layoutY="587.0" mnemonicParsing="false" text="Wyjdź" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="173.0" layoutY="462.0" prefHeight="17.0" prefWidth="262.0" text="Wybierz zakres" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="10.0" layoutY="459.0" prefHeight="0.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <RadioButton layoutX="160.0" layoutY="510.0" mnemonicParsing="false" text="BD">
+         <toggleGroup>
+            <ToggleGroup fx:id="ra_zakres" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="160.0" layoutY="535.0" mnemonicParsing="false" text="Git" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="273.0" layoutY="506.0" mnemonicParsing="false" text="Python" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="273.0" layoutY="531.0" mnemonicParsing="false" text="FE" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="396.0" layoutY="504.0" mnemonicParsing="false" text="Java" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="396.0" layoutY="529.0" mnemonicParsing="false" text="Spring" toggleGroup="$ra_zakres" />
    </children>
 </AnchorPane>

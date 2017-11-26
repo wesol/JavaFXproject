@@ -5,11 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="445.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="445.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.AdminController">
    <children>
-      <Button fx:id="btn_dodpyt" layoutX="44.0" layoutY="114.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="103.0" text="Dodanie pytania" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="btn_wyjdz" layoutX="186.0" layoutY="208.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Wyjdź" />
+      <Button fx:id="btn_dodpyt" layoutX="44.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#przejdzBaza" prefHeight="27.0" prefWidth="103.0" text="Dodanie pytania" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="btn_wyjdz" layoutX="186.0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#wyjdz" prefHeight="27.0" prefWidth="74.0" text="Wyjdź" />
       <Label alignment="CENTER" layoutX="57.0" layoutY="21.0" prefHeight="27.0" prefWidth="332.0" text="Panel administracyjny" underline="true">
          <font>
             <Font size="18.0" />
@@ -17,6 +16,6 @@
       </Label>
       <Label layoutX="67.0" layoutY="88.0" text="Baza pytań" underline="true" />
       <Label layoutX="328.0" layoutY="88.0" text="Kursanci" underline="true" />
-      <Button fx:id="btn_listakurs" alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="114.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="121.0" text="Lista kursantów" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+      <Button fx:id="btn_listakurs" alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#przejdzKursanci" prefHeight="27.0" prefWidth="121.0" text="Lista kursantów" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
    </children>
 </AnchorPane>
