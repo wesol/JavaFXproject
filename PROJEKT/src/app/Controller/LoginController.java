@@ -45,7 +45,7 @@ public class LoginController {
     		a = rs.getString("uprawnienia");
     		if(a.equals("user")) {
 		    	Stage stage = new Stage();
-				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/TestView.fxml"));
+				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/WyborTestu.fxml"));
 				Scene scene = new Scene(parent);
 				stage.setScene(scene);
 				stage.setTitle("Witaj");	

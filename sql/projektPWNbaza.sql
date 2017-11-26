@@ -47,6 +47,7 @@ CREATE TABLE ankiety(
 
 insert into users (imie, nazwisko , email,haslo,uprawnienia) values ('Mariusz', 'Kowalski','MK@gmail.com','1234','user');
 insert into users (imie, nazwisko , email,haslo,uprawnienia) values ('Marek', 'Tomasik','MT@gmail.com','1234','admin');
+insert into baza_pytan (pytanie,odp_poprawna,odp_n1,odp_n2,odp_n3,zakres)values('Czy pingwiny są nielotami','tak','nie','może','kiedyś potrwafiły latać','pyton');
 
 
 /*
