@@ -2,8 +2,8 @@ drop database if exists projektquiz;
 create database projektquiz;
 use projektquiz;
 drop table IF EXISTS Logowanie;
-drop table IF EXISTS Admins;
-drop table IF EXISTS Users;
+drop table IF EXISTS Egzaminator;
+drop table IF EXISTS Kursant;
 drop table IF EXISTS Pytania;
 drop table IF EXISTS Statystyki;
 
@@ -16,7 +16,7 @@ create table Logowanie (
     CONSTRAINT uq_loginRola UNIQUE (login, rola)
     );
 
-create table Admins (
+create table Egzaminator (
     id INT AUTO_INCREMENT,
     imie VARCHAR(25) NOT NULL,
 	nazwisko VARCHAR(35) NOT NULL,
@@ -25,7 +25,7 @@ create table Admins (
     FOREIGN KEY (login) REFERENCES Logowanie (login)
     );
 
-create table Users (
+create table Kursant (
     id INT AUTO_INCREMENT,
     imie VARCHAR(25) NOT NULL,
 	nazwisko VARCHAR(35) NOT NULL,
@@ -50,9 +50,10 @@ create table Pytania (
 create table Statystyki (
     id INT AUTO_INCREMENT,
     login VARCHAR(25) NOT NULL,
-	procent_poprawnych INT NOT NULL,
+	nr_testu VARCHAR(25) NOT NULL,
+    procent_poprawnych INT NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (login) REFERENCES Users (login)
+	FOREIGN KEY (login) REFERENCES Kursant (login)
     );
     
 
