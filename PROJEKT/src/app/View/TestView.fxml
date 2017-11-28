@@ -6,19 +6,18 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.TestController">
    <children>
-      <Label fx:id="lb_nrPytania" layoutX="93.0" layoutY="49.0" prefHeight="26.0" prefWidth="358.0" />
-      <Label fx:id="lb_trescPytania" layoutX="85.0" layoutY="120.0" prefHeight="159.0" prefWidth="508.0" wrapText="true" />
-      <RadioButton layoutX="93.0" layoutY="346.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton">
+      <Label fx:id="lb_nrPytania" layoutX="93.0" layoutY="53.0" prefHeight="26.0" prefWidth="358.0" />
+      <Label fx:id="lb_trescPytania" layoutX="93.0" layoutY="120.0" prefHeight="159.0" prefWidth="508.0" wrapText="true" />
+      <RadioButton fx:id="rb1" layoutX="93.0" layoutY="346.0" mnemonicParsing="false" onAction="#t1" prefHeight="18.0" prefWidth="508.0" text="RadioButton">
          <toggleGroup>
             <ToggleGroup fx:id="t1" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="93.0" layoutY="409.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
-      <RadioButton layoutX="93.0" layoutY="378.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
-      <RadioButton layoutX="93.0" layoutY="444.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb2" layoutX="93.0" layoutY="409.0" mnemonicParsing="false" onAction="#t3" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb3" layoutX="93.0" layoutY="378.0" mnemonicParsing="false" onAction="#t2" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb4" layoutX="93.0" layoutY="444.0" mnemonicParsing="false" onAction="#t4" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
       <Button fx:id="bt_zatwierdz" layoutX="567.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#buttonZatwierdz" text="Zatwierdz" />
    </children>
 </AnchorPane>
