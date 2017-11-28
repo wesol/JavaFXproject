@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -46,14 +45,14 @@
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <Label layoutX="336.0" layoutY="396.0" text="Podaj liczbę pytań" />
-      <TextArea fx:id="ta_liczba" layoutX="457.0" layoutY="377.0" prefHeight="30.0" prefWidth="8.0">
-         <opaqueInsets>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </opaqueInsets>
+      <Label layoutX="336.0" layoutY="396.0" text="Podaj liczbę pytań">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="text_field1" alignment="CENTER" layoutX="484.0" layoutY="386.0" prefHeight="41.0" prefWidth="46.0">
          <font>
             <Font size="17.0" />
          </font>
-      </TextArea>
+      </TextField>
    </children>
 </AnchorPane>

@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -36,7 +37,7 @@ public class WyborController {
     private CheckBox cd_spring;
 
     @FXML
-    private TextArea ta_liczba;
+    private TextField text_field1;
     
 	static String l_pyt;
 	
@@ -53,7 +54,7 @@ public class WyborController {
     	if((cb_bd.isSelected())||(cb_git.isSelected())||(cd_Python.isSelected())||// sprawdzanie czy przycisk jest w³¹czony
     		(cd_fe.isSelected())||(cd_java.isSelected())||(cd_spring.isSelected())) { 
  
-    	l_pyt = ta_liczba.getText();//do zmiennej l_pyt pobieram wynik wpisany przez uzytkownika do textarea
+    	l_pyt = text_field1.getText();//do zmiennej l_pyt pobieram wynik wpisany przez uzytkownika do textarea
     	
     	python = cd_Python.isSelected(); // przypisanie zmiennej, czy przyscisk jest w³aczony
     	java = cd_java.isSelected();

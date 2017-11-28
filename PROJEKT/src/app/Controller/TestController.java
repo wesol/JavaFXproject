@@ -1,5 +1,6 @@
 package app.Controller;
 
+import java.awt.Event;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +14,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
@@ -25,26 +25,27 @@ public class TestController {
 
     @FXML
     private Label lb_nrPytania;
-
+    
     
     @FXML
     private Label lb_trescPytania;
     	
+  
 		
     @FXML
+    private RadioButton rb_1;
+
+    @FXML
     private ToggleGroup t1;
-    
-    @FXML
-    private RadioButton rb1;
-    
-    @FXML
-    private RadioButton rb2;
 
     @FXML
-    private RadioButton rb3;
+    private RadioButton rb_3;
 
     @FXML
-    private RadioButton rb4;
+    private RadioButton rb_2;
+
+    @FXML
+    private RadioButton rb_4;
     
   
     @FXML
@@ -52,7 +53,7 @@ public class TestController {
     
     int max_i = Integer.valueOf(WyborController.l_pyt); 
     
-    boolean wybor_python = WyborController.python ;
+    boolean wybor_python = WyborController.python ; //pobranie z klasy wyborController CheckBox-a przypisanej do zmiennej 
 	boolean wybor_java = WyborController.java ;
 	boolean wybor_bd = WyborController.bd ;
 	boolean wybor_git = WyborController.git ;
@@ -92,7 +93,7 @@ public class TestController {
 		Connection conn1 = db.Connection();
 		Statement stmt = conn1.createStatement();
 		PreparedStatement ps = null;
-	
+		
 		String warunek = "";
 		for( int l = 0; l <lista_pyt.size(); l++) {
 			if (l == lista_pyt.size()-1) {
@@ -100,29 +101,40 @@ public class TestController {
 			}else {
 			warunek += "'"+lista_pyt.get(l).toString()+"',";
 			}
-			ResultSet rs_tresc = stmt.executeQuery("select id_p, pytanie from baza_pytan where zakres in ("+warunek+") "
-					+ "and id_p not in (select id_p from pytania_wylosowane) order by rand() asc limit 1");
+		}
+			ResultSet rs_tresc = stmt.executeQuery("select id_p, pytanie from baza_pytan where zakres in ("+warunek+") and id_p not in (select id_p from pytania_wylosowane) order by rand() asc limit 1");
 			rs_tresc.next();
 			lb_trescPytania.setText(rs_tresc.getString(2));
 			ps = conn1.prepareStatement("insert into pytania_wylosowane (id_p) values("+rs_tresc.getInt(1)+");");
-			ps.executeUpdate();	
+			ps.executeUpdate();
+			
+			ResultSet rs_odp = stmt.executeQuery("select id_p,odp_n1,odp_n2,odp_n3,odp_n4 from baza_pytan where "+rs_tresc.getInt(1)+" = id_p ");
+    		rs_odp.next();
+    		rb_1.setText(rs_odp.getString(2));
+    		rb_2.setText(rs_odp.getString(3));
+    		rb_3.setText(rs_odp.getString(4));
+    		rb_4.setText(rs_odp.getString(5));
     	if (i == max_i) {
 		 ps = conn1.prepareStatement("truncate pytania_wylosowane;");
 			ps.executeUpdate();
     	}
- 
+    		
     	}
-    	}
+    	
 		 i ++;
     }
  
     public void initialize() {
+    	
 		db = new DBConnector();
 		
 		lb_nrPytania.setText("Pytanie nr"+ a);
-		lb_trescPytania.setText("Jakis przykald");
 		
-		}
-   
     }
+}
+		
+		
+		
+   
+    
 

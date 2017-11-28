@@ -10,14 +10,14 @@
    <children>
       <Label fx:id="lb_nrPytania" layoutX="93.0" layoutY="53.0" prefHeight="26.0" prefWidth="358.0" />
       <Label fx:id="lb_trescPytania" layoutX="93.0" layoutY="120.0" prefHeight="159.0" prefWidth="508.0" wrapText="true" />
-      <RadioButton fx:id="rb1" layoutX="93.0" layoutY="346.0" mnemonicParsing="false" onAction="#t1" prefHeight="18.0" prefWidth="508.0" text="RadioButton">
+      <RadioButton fx:id="rb_1" layoutX="93.0" layoutY="346.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton">
          <toggleGroup>
             <ToggleGroup fx:id="t1" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="rb2" layoutX="93.0" layoutY="409.0" mnemonicParsing="false" onAction="#t3" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
-      <RadioButton fx:id="rb3" layoutX="93.0" layoutY="378.0" mnemonicParsing="false" onAction="#t2" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
-      <RadioButton fx:id="rb4" layoutX="93.0" layoutY="444.0" mnemonicParsing="false" onAction="#t4" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb_3" layoutX="93.0" layoutY="409.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb_2" layoutX="93.0" layoutY="378.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb_4" layoutX="93.0" layoutY="444.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="508.0" text="RadioButton" toggleGroup="$t1" />
       <Button fx:id="bt_zatwierdz" layoutX="567.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#buttonZatwierdz" text="Zatwierdz" />
    </children>
 </AnchorPane>
