@@ -39,11 +39,11 @@ public class LoginController {
     void buttonLogin(MouseEvent event)  throws SQLException, IOException {
     	Connection conn1 =  db.Connection();
     	Statement stmt = conn1.createStatement();
-    	ResultSet rs = stmt.executeQuery("SELECT uprawnienia FROM users WHERE email='"+tf_login.getText()+"' and haslo='"+pf_password.getText()+"';");
+    	ResultSet rs = stmt.executeQuery("SELECT rola FROM logowanie WHERE login='"+tf_login.getText()+"' and haslo='"+pf_password.getText()+"';");
     	
     	if(rs.next()) {
-    		a = rs.getString("uprawnienia");
-    		if(a.equals("user")) {
+    		a = rs.getString("rola");
+    		if(a.equals("kursant")) {
 		    	Stage stage = new Stage();
 				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/WyborTestu.fxml"));
 				Scene scene = new Scene(parent);
@@ -52,12 +52,12 @@ public class LoginController {
 				stage.show();
 				((Node) (event.getSource())).getScene().getWindow().hide();
 	    		}
-	    	else if(a.equals("admin")) {
+	    	else if(a.equals("egzaminator")) {
 				Stage stage = new Stage();
 				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/AdminView.fxml"));
 				Scene scene = new Scene(parent);
 				stage.setScene(scene);
-				stage.setTitle("Witaj doktorze");	
+				stage.setTitle("Witaj");	
 				stage.show();
 				((Node) (event.getSource())).getScene().getWindow().hide();
 	    	}

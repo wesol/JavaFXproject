@@ -1,6 +1,6 @@
 package app.Controller;
 
-import java.awt.Event;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,6 +62,8 @@ public class TestController {
   
     int i = 2;
     int a = 1;
+
+	private MouseEvent event;
     @FXML
     void buttonZatwierdz(MouseEvent event) throws SQLException {
     	
@@ -87,6 +89,7 @@ public class TestController {
     	}
     	
     	if(i <= max_i && lista_pyt.size() != 0) {
+    		
 		lb_nrPytania.setText("Pytanie nr"+ i);
 
     	lista = FXCollections.observableArrayList();
@@ -102,13 +105,13 @@ public class TestController {
 			warunek += "'"+lista_pyt.get(l).toString()+"',";
 			}
 		}
-			ResultSet rs_tresc = stmt.executeQuery("select id_p, pytanie from baza_pytan where zakres in ("+warunek+") and id_p not in (select id_p from pytania_wylosowane) order by rand() asc limit 1");
+			ResultSet rs_tresc = stmt.executeQuery("select id, pytanie from Pytania where zakres in ("+warunek+") and id not in (select id from pytania_wylosowane) order by rand() asc limit 1");
 			rs_tresc.next();
 			lb_trescPytania.setText(rs_tresc.getString(2));
-			ps = conn1.prepareStatement("insert into pytania_wylosowane (id_p) values("+rs_tresc.getInt(1)+");");
+			ps = conn1.prepareStatement("insert into pytania_wylosowane (id) values("+rs_tresc.getInt(1)+");");
 			ps.executeUpdate();
 			
-			ResultSet rs_odp = stmt.executeQuery("select id_p,odp_n1,odp_n2,odp_n3,odp_n4 from baza_pytan where "+rs_tresc.getInt(1)+" = id_p ");
+			ResultSet rs_odp = stmt.executeQuery("select id,odp_1,odp_2,odp_3,odp_4 from Pytania where "+rs_tresc.getInt(1)+" = id ");
     		rs_odp.next();
     		rb_1.setText(rs_odp.getString(2));
     		rb_2.setText(rs_odp.getString(3));
@@ -124,10 +127,10 @@ public class TestController {
 		 i ++;
     }
  
-    public void initialize() {
-    	
+    public void initialize() throws SQLException {
+
 		db = new DBConnector();
-		
+    	buttonZatwierdz(event);
 		lb_nrPytania.setText("Pytanie nr"+ a);
 		
     }
