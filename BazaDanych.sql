@@ -8,7 +8,7 @@ CREATE USER 'javauser'@'localhost' IDENTIFIED BY '1qazXSW@';
 drop database if exists projektquiz;
 
 ## CREATE DATABASE
-create database projektquiz DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+create database projektquiz DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci; 
 use projektquiz;
 
 ## DROP TABLES IF EXIST
