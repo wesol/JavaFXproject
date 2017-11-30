@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.StatEdycjeController">
+   <children>
+      <TableView fx:id="table_stat" layoutX="140.0" layoutY="77.0" prefHeight="200.0" prefWidth="422.0">
+        <columns>
+          <TableColumn fx:id="col_edycja" prefWidth="296.0" text="Edycja" />
+          <TableColumn fx:id="col_procent" prefWidth="123.0" text="Średni wynik [%]" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_wszystkieEdycje" layoutX="140.0" layoutY="292.0" mnemonicParsing="false" onMouseClicked="#wszystkieEdycje" prefHeight="25.0" prefWidth="422.0" text="Wszystkie Edycje" />
+      <BarChart fx:id="bar_chart" layoutX="135.0" layoutY="391.0" prefHeight="150.0" prefWidth="422.0">
+        <xAxis>
+          <CategoryAxis fx:id="bar_X" label="" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="bar_Y" autoRanging="true" label="\% poprawnych" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label layoutX="38.0" layoutY="14.0" prefHeight="57.0" prefWidth="706.0" text="Statystyki poprawnych odpowiedzi dla edycji" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cb_wybierzEdycje" layoutX="140.0" layoutY="326.0" onMouseClicked="#zaladujEdycje" prefHeight="25.0" prefWidth="311.0" promptText="lista Edycji" />
+      <Button fx:id="btn_wybierzEdycje" layoutX="466.0" layoutY="326.0" mnemonicParsing="false" onMouseClicked="#wyswietlEdycjeWTabeli" text="Wybierz Edycję" />
+      <Label fx:id="lbl_wybierzEdycje" layoutX="176.0" layoutY="363.0" text="Wybierz Edycję z listy rozwijanej powyżej" textFill="#dd1616" visible="false">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_exit" layoutX="279.0" layoutY="568.0" mnemonicParsing="false" onMouseClicked="#buttonExit" prefHeight="41.0" prefWidth="155.0" text="Powrót do Menu" />
+   </children>
+</AnchorPane>

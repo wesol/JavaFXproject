@@ -17,14 +17,14 @@
          <font>
             <Font size="19.0" />
          </font></Label>
-      <RadioButton fx:id="rb_1" layoutX="47.0" layoutY="330.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="595.0" text="RadioButton" wrapText="true">
+      <RadioButton fx:id="rb_1" layoutX="47.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#radioButton_1" prefHeight="34.0" prefWidth="595.0" text="RadioButton" wrapText="true">
          <toggleGroup>
             <ToggleGroup fx:id="t1" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="rb_3" layoutX="47.0" layoutY="413.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="595.0" text="RadioButton" toggleGroup="$t1" />
-      <RadioButton fx:id="rb_2" layoutX="47.0" layoutY="371.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="595.0" text="RadioButton" toggleGroup="$t1" />
-      <RadioButton fx:id="rb_4" layoutX="47.0" layoutY="456.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="595.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb_3" layoutX="47.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#radioButton_3" prefHeight="34.0" prefWidth="595.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb_2" layoutX="47.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#radioButton_2" prefHeight="34.0" prefWidth="595.0" text="RadioButton" toggleGroup="$t1" />
+      <RadioButton fx:id="rb_4" layoutX="47.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#radioButton_4" prefHeight="34.0" prefWidth="595.0" text="RadioButton" toggleGroup="$t1" />
       <Button fx:id="bt_zatwierdz" layoutX="567.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#buttonZatwierdz" text="Zatwierdz" />
    </children>
 </AnchorPane>

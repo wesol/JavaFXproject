@@ -1,5 +1,7 @@
 package app.Controller;
 
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,11 +13,16 @@ import app.Database.DBConnector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class TestController {
 	public DBConnector db;
@@ -29,7 +36,6 @@ public class TestController {
     @FXML
     private Label lb_trescPytania;
     	
-  
 		
     @FXML
     private RadioButton rb_1;
@@ -50,7 +56,12 @@ public class TestController {
     @FXML
     private Button bt_zatwierdz;
     
-    int max_i = Integer.valueOf(WyborController.l_pyt); 
+    public static int il_odp_poprawnych;
+    public static int odp_poprawna;
+
+	public static ArrayList<Integer> lista_wyswietlonych_pytan = new ArrayList<Integer>();
+    
+    public static int il_pytan = Integer.valueOf(WyborController.l_pyt); 
     
     boolean wybor_python = WyborController.python ; //pobranie z klasy wyborController CheckBox-a przypisanej do zmiennej 
 	boolean wybor_java = WyborController.java ;
@@ -59,14 +70,17 @@ public class TestController {
 	boolean wybor_fe = WyborController.fe ;
 	boolean wybor_spring = WyborController.spring ;
   
-    int i = 2;
-    int a = 1;
-
+    int i = 1;
+   
+    
 	private MouseEvent event;
+
+
     @FXML
-    void buttonZatwierdz(MouseEvent event) throws SQLException {
+    void buttonZatwierdz(MouseEvent event) throws SQLException, IOException {
     	
-    	ArrayList<String> lista_pyt = new ArrayList<String>();
+    	ArrayList<String> lista_pyt = new ArrayList<String>(); //wrzucamy do listy stringi ( java, pyhon..) , poniewaz zmienna by³a zapisana jako boolen a potrzebowalismy stringi.
+    	
     	
 		if (wybor_python == true) {
     		lista_pyt.add("python");
@@ -87,7 +101,7 @@ public class TestController {
     		lista_pyt.add("spring");
     	}
     	
-    	if(i <= max_i && lista_pyt.size() != 0) {
+    	if(i <= il_pytan && lista_pyt.size() != 0) {// zadawanie pytania do momentu ktory zosta³ okreslony przez uzytkownika
     		
 		lb_nrPytania.setText("Pytanie nr"+ i);
 
@@ -96,12 +110,12 @@ public class TestController {
 		Statement stmt = conn1.createStatement();
 		PreparedStatement ps = null;
 		
-		String warunek = "";
-		for( int l = 0; l <lista_pyt.size(); l++) {
-			if (l == lista_pyt.size()-1) {
-				warunek += "'"+lista_pyt.get(l).toString()+"'";
+		String warunek = ""; 
+		for( int l = 0; l <lista_pyt.size(); l++) { 
+			if (l == lista_pyt.size()-1) { // sprawdzanie ostatniego elemntu z listy
+				warunek += "'"+lista_pyt.get(l).toString()+"'"; // jezeli jest ostatnim element list to dodajemy do "warunku" bez przecinka na koncu
 			}else {
-			warunek += "'"+lista_pyt.get(l).toString()+"',";
+			warunek += "'"+lista_pyt.get(l).toString()+"',";// jezeli nie jest to dodajemy przecinek
 			}
 		}
 			ResultSet rs_tresc = stmt.executeQuery("select id, pytanie from Pytania where zakres in ("+warunek+") and id not in (select id from pytania_wylosowane) order by rand() asc limit 1");
@@ -110,28 +124,68 @@ public class TestController {
 			ps = conn1.prepareStatement("insert into pytania_wylosowane (id) values("+rs_tresc.getInt(1)+");");
 			ps.executeUpdate();
 			
-			ResultSet rs_odp = stmt.executeQuery("select id,odp_1,odp_2,odp_3,odp_4 from Pytania where "+rs_tresc.getInt(1)+" = id ");
+			ResultSet rs_odp = stmt.executeQuery("select id,odp_1,odp_2,odp_3,odp_4,odp_poprawna from Pytania where "+rs_tresc.getInt(1)+" = id ");
     		rs_odp.next();
     		rb_1.setText(rs_odp.getString(2));
     		rb_2.setText(rs_odp.getString(3));
     		rb_3.setText(rs_odp.getString(4));
     		rb_4.setText(rs_odp.getString(5));
-    	if (i == max_i) {
+    		odp_poprawna = rs_odp.getInt(6);
+    		
+    	if (i == il_pytan) {
 		 ps = conn1.prepareStatement("truncate pytania_wylosowane;");
 			ps.executeUpdate();
+    		}
     	}
+    	if(i > il_pytan) {
     		
+    	 	Stage stage = new Stage();
+			Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/Koniec.fxml"));
+			Scene scene = new Scene(parent);
+			stage.setScene(scene);
+			stage.setTitle("Witaj");	
+			stage.show();
+			((Node) (event.getSource())).getScene().getWindow().hide();
+    		
+	    	
     	}
-    	
 		 i ++;
     }
  
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, IOException {
 
 		db = new DBConnector();
     	buttonZatwierdz(event);
-		lb_nrPytania.setText("Pytanie nr"+ a);
 		
+    }
+    @FXML
+    void radioButton_1(MouseEvent event) {
+    	
+    	if (odp_poprawna == 1) {
+			il_odp_poprawnych++;
+    	}
+    }
+
+    @FXML
+    void radioButton_2(MouseEvent event) {
+    	if (odp_poprawna == 2) {
+			il_odp_poprawnych++;
+    	}
+    }
+    @FXML
+    void radioButton_3(MouseEvent event) {
+    	if (odp_poprawna == 3) {
+			il_odp_poprawnych++;
+    	}
+
+    }
+
+    @FXML
+    void radioButton_4(MouseEvent event) {
+    	if (odp_poprawna == 4) {
+			il_odp_poprawnych++;
+    	}
+
     }
 
 }

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.PotwPytanieController">
+   <children>
+      <Label alignment="CENTER" layoutX="166.0" layoutY="24.0" prefHeight="17.0" prefWidth="433.0" text="Potwierdź pytanie oraz odpowiedzi">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <GridPane gridLinesVisible="true" layoutX="40.0" layoutY="63.0" prefHeight="399.0" prefWidth="685.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="74.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="616.0" minWidth="10.0" prefWidth="611.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="100.0" minHeight="70.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="80.0" minHeight="70.0" prefHeight="0.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="80.0" minHeight="70.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="70.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="70.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" cache="true" mnemonicParsing="true" prefHeight="107.0" prefWidth="74.0" text="Pytanie:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_e1" alignment="CENTER" cache="true" contentDisplay="CENTER" mnemonicParsing="true" prefHeight="67.0" prefWidth="370.0" text=" Odpowiedź błędna" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_e2" alignment="CENTER" cache="true" mnemonicParsing="true" prefHeight="67.0" prefWidth="370.0" text=" Odpowiedź błędna" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_e3" alignment="CENTER" cache="true" mnemonicParsing="true" prefHeight="67.0" prefWidth="370.0" text=" Odpowiedź błędna" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_e4" alignment="CENTER" cache="true" mnemonicParsing="true" prefHeight="67.0" prefWidth="370.0" text=" Odpowiedź błędna" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_pyt" alignment="CENTER" contentDisplay="CENTER" prefHeight="98.0" prefWidth="611.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lbl_odp1" alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="611.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lbl_odp2" alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="611.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lbl_odp3" alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="611.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lbl_odp4" alignment="CENTER" contentDisplay="CENTER" prefHeight="102.0" prefWidth="611.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label alignment="CENTER" cache="true" mnemonicParsing="true" prefHeight="67.0" prefWidth="370.0" text="Zakres" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_zakres" alignment="CENTER" contentDisplay="CENTER" prefHeight="102.0" prefWidth="611.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </GridPane>
+      <Button fx:id="btn_zatwierdz" layoutX="658.0" layoutY="478.0" mnemonicParsing="false" onMouseClicked="#zatwierdz" text="Zatwierdź" />
+      <Button fx:id="btn_anuluj" layoutX="599.0" layoutY="478.0" mnemonicParsing="false" onMouseClicked="#anuluj" text="Anuluj" />
+   </children>
+</AnchorPane>

@@ -1,7 +1,9 @@
 package app.Controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import app.Database.DBConnector;
@@ -15,12 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class LoginController {
-	
-	 DBConnector db;
-	    public static String a;
+
+    @FXML
+    private Button bt_logowanie;
 
     @FXML
     private TextField tf_login;
@@ -28,9 +31,14 @@ public class LoginController {
     @FXML
     private PasswordField pf_password;
 
-    @FXML
+  
+    DBConnector db;
+    public static String a;
+    public static String login;
 
+    @FXML
     void buttonLogin(MouseEvent event)  throws SQLException, IOException {
+    	login = tf_login.getText();
     	Connection conn1 =  db.Connection();
     	Statement stmt = conn1.createStatement();
     	ResultSet rs = stmt.executeQuery("SELECT rola FROM logowanie WHERE login='"+tf_login.getText()+"' and haslo='"+pf_password.getText()+"';");
@@ -68,4 +76,3 @@ public class LoginController {
     	    	db = new DBConnector();
     	 }
     }
-

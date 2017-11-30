@@ -9,13 +9,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class WyborController {
 	
+    @FXML
+    private Button bt_wyloguj;
 
 	@FXML 
     private CheckBox cb_bd;
@@ -76,6 +80,17 @@ public class WyborController {
 				statement.showAndWait();
 			}
     	
+    }
+    @FXML
+    void buttonWyloguj(MouseEvent event) throws IOException {
+    	Stage stage = new Stage();
+		Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/LogView.fxml"));
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Witaj");	
+		stage.show();
+		((Node) (event.getSource())).getScene().getWindow().hide();
+
     }
 
 }

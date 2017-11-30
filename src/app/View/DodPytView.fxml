@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.DodPytController">
+   <children>
+      <Label contentDisplay="CENTER" layoutX="238.0" layoutY="14.0" text="Dodanie pytania" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="41.0" prefHeight="17.0" prefWidth="131.0" text="Treść pytania" />
+      <TextArea fx:id="ta_pytanie" layoutX="19.0" layoutY="67.0" prefHeight="53.0" prefWidth="567.0" promptText="Wprowadź" wrapText="true" />
+      <Label layoutX="20.0" layoutY="135.0" prefHeight="17.0" prefWidth="131.0" text="Odpowiedz nr 1" />
+      <TextArea fx:id="ta_odp1" layoutX="19.0" layoutY="160.0" prefHeight="40.0" prefWidth="567.0" promptText="Wprowadź" wrapText="true" />
+      <Label layoutX="20.0" layoutY="216.0" prefHeight="17.0" prefWidth="262.0" text="Odpowiedz nr 2" />
+      <TextArea fx:id="ta_odp2" layoutX="19.0" layoutY="241.0" prefHeight="40.0" prefWidth="567.0" promptText="Wprowadź" wrapText="true" />
+      <Label layoutX="20.0" layoutY="298.0" prefHeight="17.0" prefWidth="262.0" text="Odpowiedz nr 3" />
+      <TextArea fx:id="ta_odp3" layoutX="19.0" layoutY="323.0" prefHeight="40.0" prefWidth="567.0" promptText="Wprowadź" wrapText="true" />
+      <Label layoutX="20.0" layoutY="381.0" prefHeight="17.0" prefWidth="262.0" text="Odpowiedz nr 4" />
+      <TextArea fx:id="ta_odp4" layoutX="20.0" layoutY="406.0" prefHeight="40.0" prefWidth="567.0" promptText="Wprowadź" wrapText="true" />
+      <Button fx:id="btn_zatwierdz" layoutX="325.0" layoutY="592.0" mnemonicParsing="false" onMouseClicked="#zatwierdz" prefHeight="41.0" prefWidth="155.0" text="Zatwierdź" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="309.0" layoutY="462.0" prefHeight="17.0" prefWidth="262.0" text="Wybierz zakres" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="10.0" layoutY="459.0" prefHeight="0.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <RadioButton layoutX="320.0" layoutY="500.0" mnemonicParsing="false" text="BD">
+         <toggleGroup>
+            <ToggleGroup fx:id="ra_zakres" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="320.0" layoutY="530.0" mnemonicParsing="false" text="Git" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="410.0" layoutY="500.0" mnemonicParsing="false" text="Python" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="410.0" layoutY="530.0" mnemonicParsing="false" text="FE" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="500.0" layoutY="500.0" mnemonicParsing="false" text="Java" toggleGroup="$ra_zakres" />
+      <RadioButton layoutX="500.0" layoutY="530.0" mnemonicParsing="false" text="Spring" toggleGroup="$ra_zakres" />
+      <Button fx:id="btn_clear" layoutX="523.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#clearAll" text="Wyczyść" />
+      <Separator layoutX="301.0" layoutY="463.0" orientation="VERTICAL" prefHeight="109.0" prefWidth="7.0" />
+      <Separator layoutX="14.0" layoutY="574.0" prefHeight="0.0" prefWidth="580.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="462.0" prefHeight="27.0" prefWidth="198.0" text="Poprawna odpowiedź" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="ra_nr1" layoutX="34.0" layoutY="500.0" mnemonicParsing="false" text="Odpowiedz nr 1">
+         <toggleGroup>
+            <ToggleGroup fx:id="ra_nr_odpowiedzi" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="ra_nr2" layoutX="33.0" layoutY="530.0" mnemonicParsing="false" text="Odpowiedz nr 2" toggleGroup="$ra_nr_odpowiedzi" />
+      <RadioButton fx:id="ra_nr3" layoutX="164.0" layoutY="530.0" mnemonicParsing="false" text="Odpowiedz nr 4" toggleGroup="$ra_nr_odpowiedzi" />
+      <RadioButton fx:id="ra_nr4" layoutX="164.0" layoutY="500.0" mnemonicParsing="false" text="Odpowiedz nr 3" toggleGroup="$ra_nr_odpowiedzi" />
+      <Button fx:id="btn_exit" layoutX="135.0" layoutY="592.0" mnemonicParsing="false" onMouseClicked="#wsteczAdminView" prefHeight="41.0" prefWidth="155.0" text="Powrót do Menu" />
+   </children>
+</AnchorPane>
