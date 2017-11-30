@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.ListaStatController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.StatKursanciController">
    <children>
       <TableView fx:id="table_Stat" layoutX="42.0" layoutY="101.0" prefHeight="257.0" prefWidth="645.0" AnchorPane.bottomAnchor="437.0" AnchorPane.topAnchor="101.0">
         <columns>
@@ -26,7 +26,7 @@
             <Tooltip text="Lista kursantów" />
          </tooltip>
       </TableView>
-      <TextField fx:id="tf_filter" layoutX="155.0" layoutY="326.0" onAction="#wyswietlWszystkichKursantow" onKeyReleased="#filter" prefHeight="25.0" prefWidth="223.0" promptText="wpisz imię lub nazwisko kursanta...">
+      <TextField fx:id="tf_filter" layoutX="155.0" layoutY="326.0" onKeyReleased="#filter" prefHeight="25.0" prefWidth="223.0" promptText="wpisz imię lub nazwisko kursanta...">
          <tooltip>
             <Tooltip text="Wyszukiwanie" />
          </tooltip>
