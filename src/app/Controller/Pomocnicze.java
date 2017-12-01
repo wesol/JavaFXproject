@@ -16,7 +16,6 @@ public class Pomocnicze {
 		Stage stage = new Stage();
 		Parent parent = (Parent) FXMLLoader.load(getClass().getResource(sciezka));
 		Scene scene = new Scene(parent);
-		// scene.getStylesheets().add(getClass().getResource("").toExternalForm());
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.initModality(Modality.APPLICATION_MODAL);

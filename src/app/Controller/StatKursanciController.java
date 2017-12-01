@@ -78,7 +78,7 @@ public class StatKursanciController {
 		if (!szukaj.equals("")) {
 			ResultSet rs = conn.createStatement().executeQuery(
 					"select kursant.imie, kursant.nazwisko, kursant.edycja, count(statystyki.id), round(sum(statystyki.procent_poprawnych)/count(statystyki.id)) from statystyki join kursant on kursant.login = statystyki.login where locate('"
-							+ szukaj + "',kursant.imie)!=0 or locate('" + szukaj + "',kursant.nazwisko)!=0");
+							+ szukaj + "',kursant.imie)!=0 or locate('" + szukaj + "',kursant.nazwisko)!=0 group by kursant.imie, kursant.nazwisko, kursant.edycja");
 
 			while (rs.next()) {
 				data.add(new Stat(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDouble(5)));

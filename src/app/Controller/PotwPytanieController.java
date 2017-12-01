@@ -1,6 +1,10 @@
 package app.Controller;
 
-import app.Database.DBConnectorMW;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import app.Database.DBConnector;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -10,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 public class PotwPytanieController {
-
+	public DBConnector db;
 
 	@FXML
 	private Label lbl_e1;
@@ -55,13 +59,16 @@ public class PotwPytanieController {
 	}
 
 	@FXML
-	void zatwierdz(MouseEvent event) {
-		DBConnectorMW baza = new DBConnectorMW();
-		baza.insert("Insert into Pytania (zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values ('"
+	void zatwierdz(MouseEvent event) throws SQLException {
+		Connection con = db.Connection();
+		Statement stmt = con.createStatement();
+		
+		stmt.executeUpdate("Insert into Pytania (zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values ('"
 				+ DodPytController.zakres + "', '" + DodPytController.pyt + "', '" + DodPytController.odp1 + "', '"
 				+ DodPytController.odp2 + "', '" + DodPytController.odp3 + "', '" + DodPytController.odp4 + "', "
 				+ DodPytController.poprawna + ")");
-
+		con.close();
+		
 		Alert ostrz = new Alert(AlertType.INFORMATION);
 		ostrz.setHeaderText(
 				"Do bazy zosta³o dodane pytanie odpowiadaj¹ce mu odpowiedzi.\nMo¿esz przejœc do wprowadzania kolejnego");
@@ -74,6 +81,8 @@ public class PotwPytanieController {
 		
 
 	public void initialize() {
+		db = new DBConnector();
+		
 		lbl_pyt.setText(DodPytController.pyt);
 		lbl_odp1.setText(DodPytController.odp1);
 		lbl_odp2.setText(DodPytController.odp2);

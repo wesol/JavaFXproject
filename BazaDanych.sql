@@ -1,8 +1,5 @@
-## DROP USER IF EXIST
-DROP USER 'javaUser'@'localhost';
-
 ## CREATE USER
-CREATE USER 'javauser'@'localhost' IDENTIFIED BY '1qazXSW@';
+CREATE USER IF NOT EXISTS 'javaUser'@'localhost' IDENTIFIED BY '1qazXSW@';
 
 ## DROP DATABASE IF EXIST
 drop database if exists projektquiz;
@@ -11,13 +8,6 @@ drop database if exists projektquiz;
 create database projektquiz DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 use projektquiz;
 
-## DROP TABLES IF EXIST
-drop table IF EXISTS Logowanie; 
-drop table IF EXISTS Egzaminator;
-drop table IF EXISTS Kursant;
-drop table IF EXISTS Pytania;
-drop table IF EXISTS Statystyki;
-drop table IF EXISTS pytania_wylosowane;
 
 
 ## CREATE TABLES
@@ -72,8 +62,9 @@ create table Statystyki (
 CREATE TABLE pytania_wylosowane(
 id int);
  
+
 ## GRANT ACCESS TO DATABASE FOR USER 
-GRANT ALL ON projektquiz.* TO 'javauser'@'localhost';
+GRANT ALL ON projektquiz.* TO 'javaUser'@'localhost';
  
 ## INSERT
 # Pytania
@@ -87,26 +78,24 @@ insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_popraw
 insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (8,'java','Jaka jest wartość domyślna krótkiej zmiennej?','0,0','0','wartość null','niezdefiniowane',2);
 insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (9,'java','Które z poniższych stwierdzeń jest szybsze, StringBuilder albo StringBuffer?','StringBuilder','StringBuffer','Obie powyższe.','żadna z powyższych.',1);
 insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (10,'java',' Co to jest serializacja?','Serializacja jest procesem zapisu stanu obiektu z innym obiektem.','Serializacji jest procesem zapisu stanu obiektu w strumieniu bajtów.','Obie powyższe.','Żadne z powyższych.',2);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (11,'bd','Pytanie bd1','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (12,'bd','Pytanie bd2','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (13,'bd','Pytanie bd1','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (14,'bd','Pytanie bd2','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (15,'bd','Pytanie bd3','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (16,'git','Pytanie git1','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (17,'git','Pytanie git2','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (18,'git','Pytanie git3','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (19,'git','Pytanie git2','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (20,'git','Pytanie git3','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (21,'fe','Pytanie fe1','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (22,'fe','Pytanie fe2','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (23,'fe','Pytanie fe1','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (24,'fe','Pytanie fe2','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (25,'fe','Pytanie fe2','tak','nie','może','kiedyś potrwafiły latać',1);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (26,'spring','Pytanie spring1','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (27,'spring','Pytanie spring2','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (28,'spring','Pytanie spring2','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (29,'spring','Pytanie spring2','tak','nie','może','kiedyś potrwafiły latać',3);
-insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (30,'spring','Pytanie spring2','tak','nie','może','kiedyś potrwafiły latać',3);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (11,'bd',' Które z poniższych nie jest prawdą o stałych PL / SQL i literałach','Stała posiada wartość, która raz zadeklarowana, nie zmienia się w programie.','Stała deklaracja nie może nałożyć ograniczenie NOT NULL.','Stała jest zadeklarowana za pomocą słowa kluczowego.','deklaracja wymaga wartość początkowej.',2);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (12,'bd','Instrukcja SELECT służy do:','sprowadzania rekordów z bazy danych','wstawiania rekordów do bazy danyc','usuwania rekordów z bazy danych','aktualizacji rekordów w bazie danych',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (13,'bd','Instrukcja ROLLBACK służy do:','wycofywania zmian w bazie danych','zatwierdzania zmian w bazie danych','usuwania rekordów z bazy danych','aktualizacji rekordów w bazie danych',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (14,'bd','Co będzie wynikiem realizacji instrukcji SELECT * FROM Emp WHERE EmpNo=EmpNo AND NULL=EmpNo ','relacja Emp','relacja pusta','instrukcja jest niepoprawna','Żadna z powyższych',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (15,'bd','Encji odpowiada w relacyjnej bazie danych:','wiersz w tabeli','kolumna w tabeli','tabela','klucz obcy',3);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (16,'git','Czym jest Git?','Git to rozproszony system kontroli wersji','Git to program graficzny','Git to wyszukiwarka internetowa','Git to gra komputerowa',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (17,'git','Polecenie używane do sprawdzenia stanu plików to:','git status','git commit','git log','git show',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (18,'git','Co to jest gałąź? ','to suma kontrolna rewizji przechowywana w pliku','służy do śledzenia nowych plików','służy do dodwania zmian do poczekalni','to, przesuwalny wskaźnik na któryś z zestawów zmian(commitów).',4);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (19,'git','Do czego służy komenda ls?','wyświetla listę plików i katalogów','sprawdza status plików','pokazuje dane etykiet','usuwa plik z katalogu',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (20,'git','Do czego służy komenda git fetch?','wyświetla listę gałęzi','commit-uje zmiany','ściąga zmiany ze zdalnego repozytorium ale ich nie scala','dodaje zdale repozytorium',3);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (21,'fe','Który elemnt nie należy d HTML5','<section>','<header','<blink>','<main>',3);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (22,'fe','Które z poniższych stwierdzeń jest prawdziwe','Atrybuty mogą mieć przypisaną tylko jedną wartość','Atrybuty są łatwo rozszerzalne w przypadku zmian w przyszłości','Atrybuty opisują struktury','Atrybuty są znacznie łatwiejsze przy manipulowaniu nimi w programie',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (23,'fe','Gdzie podpinamy plik .css do dokumentu HTML','sekcja <head>','sekcja <body>','nie musimy podpinac pliku .css','żadne z powyższych',3);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (24,'spring','Spring to:','free framework','an open source framework','może','kiedyś potrwafiły latać',2);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (25,'spring','Co oznacza skrót AOP','Aspect Oriented Programming','Any Object Programming','Asset Oriented Programming','Asset Oriented Protocol',1);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (26,'spring','Czym jest aspekt?','Aspekt jest sposobem wykonania iniekcji zależności ','Moduł, który ma zestaw interfejsów API zapewniających przekrojowe wymagania','Aspekt służy do rejestrowania informacji o aplikacji.','Aspekt reprezentuje właściwości aplikacji na bazie sprężyny.',2);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (27,'spring','Jeśli komponent bean może być tworzony dowolną liczbę razy, zakres jest','sesją','sesją globalną','prototypem','wnioskiem',3);
+insert into Pytania (id, zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values (28,'spring','Która z poniższych aspektów implementujących obsługuje Spring','Implementacja aspektu opartego na schemacie XML',' Implementacja aspektu opartego na @AspectJ','Obie powyższe','Obie powyższe',3);
 
 # logowanie
 insert into logowanie (login, haslo, rola) values('egzaminator', 'm', 'egzaminator');

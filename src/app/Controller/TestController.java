@@ -61,14 +61,14 @@ public class TestController {
 
 	public static ArrayList<Integer> lista_wyswietlonych_pytan = new ArrayList<Integer>();
     
-    public static int il_pytan = Integer.valueOf(WyborController.l_pyt); 
+    public static int il_pytan = Integer.valueOf(WyborTestuController.l_pyt); 
     
-    boolean wybor_python = WyborController.python ; //pobranie z klasy wyborController CheckBox-a przypisanej do zmiennej 
-	boolean wybor_java = WyborController.java ;
-	boolean wybor_bd = WyborController.bd ;
-	boolean wybor_git = WyborController.git ;
-	boolean wybor_fe = WyborController.fe ;
-	boolean wybor_spring = WyborController.spring ;
+    boolean wybor_python = WyborTestuController.python ; //pobranie z klasy wyborController CheckBox-a przypisanej do zmiennej 
+	boolean wybor_java = WyborTestuController.java ;
+	boolean wybor_bd = WyborTestuController.bd ;
+	boolean wybor_git = WyborTestuController.git ;
+	boolean wybor_fe = WyborTestuController.fe ;
+	boolean wybor_spring = WyborTestuController.spring ;
   
     int i = 1;
    
@@ -140,7 +140,7 @@ public class TestController {
     	if(i > il_pytan) {
     		
     	 	Stage stage = new Stage();
-			Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/Koniec.fxml"));
+			Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/KoniecView.fxml"));
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
 			stage.setTitle("Witaj");	
