@@ -51,7 +51,7 @@ public class LogController {
 				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/WyborTestuView.fxml"));
 				Scene scene = new Scene(parent);
 				stage.setScene(scene);
-				stage.setTitle("Witaj");
+				stage.setTitle("Wybór zakresu testu");
 				stage.show();
 				((Node) (event.getSource())).getScene().getWindow().hide();
 			} else if (a.equals("egzaminator")) {
@@ -59,15 +59,15 @@ public class LogController {
 				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/AdminView.fxml"));
 				Scene scene = new Scene(parent);
 				stage.setScene(scene);
-				stage.setTitle("Witaj");
+				stage.setTitle("Panel egzaminatora");
 				stage.show();
 				((Node) (event.getSource())).getScene().getWindow().hide();
 			}
 		} else {
 			Alert statement = new Alert(AlertType.INFORMATION);
-			statement.setHeaderText("B³¹d");
-			statement.setContentText("B³êdne has³o lub login");
-			statement.setTitle("Nale¿y podaæ poprawne dane logowania");
+			statement.setHeaderText("B³¹d logowania");
+			statement.setContentText("B³êdny login lub has³o.");
+			statement.setTitle("Podaj poprawne dane logowania");
 			statement.showAndWait();
 		}
 

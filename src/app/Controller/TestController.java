@@ -10,8 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.Database.DBConnector;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -26,8 +24,6 @@ import javafx.stage.Stage;
 
 public class TestController {
 	public DBConnector db;
-	
-	ObservableList lista;
 
     @FXML
     private Label lb_nrPytania;
@@ -103,9 +99,8 @@ public class TestController {
     	
     	if(i <= il_pytan && lista_pyt.size() != 0) {// zadawanie pytania do momentu ktory zosta³ okreslony przez uzytkownika
     		
-		lb_nrPytania.setText("Pytanie nr"+ i);
+		lb_nrPytania.setText("Pytanie nr "+ i);
 
-    	lista = FXCollections.observableArrayList();
 		Connection conn1 = db.Connection();
 		Statement stmt = conn1.createStatement();
 		PreparedStatement ps = null;
@@ -143,7 +138,7 @@ public class TestController {
 			Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/KoniecView.fxml"));
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
-			stage.setTitle("Witaj");	
+			stage.setTitle("Koniec testu");	
 			stage.show();
 			((Node) (event.getSource())).getScene().getWindow().hide();
     		

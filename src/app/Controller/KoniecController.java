@@ -50,7 +50,7 @@ public class KoniecController {
 		Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/LogView.fxml"));
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
-		stage.setTitle("Witaj");	
+		stage.setTitle("Logowanie");	
 		stage.show();
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		

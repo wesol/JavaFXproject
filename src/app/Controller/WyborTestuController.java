@@ -2,7 +2,6 @@ package app.Controller;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,11 +14,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -142,21 +140,23 @@ public class WyborTestuController {
 					Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/TestView.fxml"));
 					Scene scene = new Scene(parent);
 					stage.setScene(scene);
-					stage.setTitle("Witaj");
+					stage.setTitle("Test");
 					stage.show();
 					((Node) (event.getSource())).getScene().getWindow().hide();
 				} else {
 					Alert statement1 = new Alert(AlertType.INFORMATION);
-					statement1.setHeaderText("B³¹d");
-					statement1.setContentText("Podano zbyt du¿¹ liczbê pytañ (maks " + m + ")");
+					statement1.setTitle("B³¹d");
+					statement1.setHeaderText("Podano zbyt du¿¹ liczbê pytañ.");
+					statement1.setContentText("Maksymalna liczba pytañ dla wybranego zakresu to: " + m + ".");
 					statement1.showAndWait();
 				}
 			}
 
 		} else {
 			Alert statement = new Alert(AlertType.INFORMATION);
-			statement.setHeaderText("B³¹d");
-			statement.setContentText("Nie zaznaczono zakresu");
+			statement.setTitle("B³¹d");
+			statement.setHeaderText("Nie zaznaczono zakresu testu.");
+			statement.setContentText("Wybierz co najmniej jeden zakres testu.");
 			statement.showAndWait();
 		}
 	}
@@ -167,7 +167,7 @@ public class WyborTestuController {
 		Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/LogView.fxml"));
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
-		stage.setTitle("Witaj");
+		stage.setTitle("Logowanie");
 		stage.show();
 		((Node) (event.getSource())).getScene().getWindow().hide();
 
