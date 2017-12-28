@@ -21,10 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class WyborTestuController {
+public class TestChoiceController {
 
 	@FXML
-	private Button bt_wyloguj;
+	private Button bt_logout;
 
 	@FXML
 	private CheckBox cb_bd;
@@ -47,7 +47,7 @@ public class WyborTestuController {
 	@FXML
 	private TextField text_field1;
 
-	static int l_pyt;
+	static int quantinyOfQuestionsTC;
 
 	static boolean bd;
 	static boolean git;
@@ -59,17 +59,17 @@ public class WyborTestuController {
 	public DBConnector db;
 
 	@FXML
-	void ButtonPrzejdzDoTestu(MouseEvent event) throws IOException, SQLException {
+	void ButtonTestStart(MouseEvent event) throws IOException, SQLException {
 		boolean flaga = false;
 		m = 0;
 
-		if ((cb_bd.isSelected()) || (cb_git.isSelected()) || (cd_Python.isSelected()) || // sprawdzanie czy przycisk
-																							// jest w³¹czony
+		if ((cb_bd.isSelected()) || (cb_git.isSelected()) || (cd_Python.isSelected()) || 
+																						
 				(cd_fe.isSelected()) || (cd_java.isSelected()) || (cd_spring.isSelected())) {
 
 			try {
-				l_pyt = new Integer(text_field1.getText());// do zmiennej l_pyt pobieram wynik wpisany przez uzytkownika
-															// do textarea
+				quantinyOfQuestionsTC = new Integer(text_field1.getText());
+															
 			} catch (NumberFormatException e1) {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setHeaderText("B³¹d");
@@ -79,7 +79,7 @@ public class WyborTestuController {
 			}
 
 			if (flaga == false) {
-				python = cd_Python.isSelected(); // przypisanie zmiennej, czy przyscisk jest w³aczony
+				python = cd_Python.isSelected();
 				java = cd_java.isSelected();
 				bd = cb_bd.isSelected();
 				git = cb_git.isSelected();
@@ -131,11 +131,11 @@ public class WyborTestuController {
 					conn.close();
 
 				} catch (Exception e) {
-					System.out.println("b³ad!!!!!!!!!!!! ");
+					System.out.println("b³¹d!!!!!!!!!!!! ");
 					e.printStackTrace();
 				}
 
-				if (l_pyt <= m) {
+				if (quantinyOfQuestionsTC <= m) {
 					Stage stage = new Stage();
 					Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/TestView.fxml"));
 					Scene scene = new Scene(parent);
@@ -162,7 +162,7 @@ public class WyborTestuController {
 	}
 
 	@FXML
-	void buttonWyloguj(MouseEvent event) throws IOException {
+	void logout(MouseEvent event) throws IOException {
 		Stage stage = new Stage();
 		Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/LogView.fxml"));
 		Scene scene = new Scene(parent);

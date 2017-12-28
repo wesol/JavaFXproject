@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.StatEdycjeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.EditionsStatsController">
    <children>
       <TableView fx:id="table_stat" layoutX="140.0" layoutY="77.0" prefHeight="200.0" prefWidth="422.0">
         <columns>
-          <TableColumn fx:id="col_edycja" prefWidth="296.0" text="Edycja" />
-          <TableColumn fx:id="col_procent" prefWidth="123.0" text="Średni wynik [%]" />
+          <TableColumn fx:id="col_edition" prefWidth="296.0" text="Edycja" />
+          <TableColumn fx:id="col_percent" prefWidth="123.0" text="Średni wynik [%]" />
         </columns>
       </TableView>
-      <Button fx:id="btn_wszystkieEdycje" layoutX="140.0" layoutY="292.0" mnemonicParsing="false" onMouseClicked="#wszystkieEdycje" prefHeight="25.0" prefWidth="422.0" text="Wszystkie Edycje" />
+      <Button fx:id="btn_allEdition" layoutX="140.0" layoutY="292.0" mnemonicParsing="false" onMouseClicked="#allEditions" prefHeight="25.0" prefWidth="422.0" text="Wszystkie Edycje" />
       <BarChart fx:id="bar_chart" layoutX="135.0" layoutY="391.0" prefHeight="150.0" prefWidth="422.0">
         <xAxis>
           <CategoryAxis fx:id="bar_X" label="" side="BOTTOM" />
@@ -33,9 +33,9 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cb_wybierzEdycje" layoutX="140.0" layoutY="326.0" onMouseClicked="#zaladujEdycje" prefHeight="25.0" prefWidth="311.0" promptText="lista Edycji" />
-      <Button fx:id="btn_wybierzEdycje" layoutX="466.0" layoutY="326.0" mnemonicParsing="false" onMouseClicked="#wyswietlEdycjeWTabeli" text="Wybierz Edycję" />
-      <Label fx:id="lbl_wybierzEdycje" layoutX="176.0" layoutY="363.0" text="Wybierz Edycję z listy rozwijanej powyżej" textFill="#dd1616" visible="false">
+      <ComboBox fx:id="cb_chooseEdition" layoutX="140.0" layoutY="326.0" onMouseClicked="#editionLoad" prefHeight="25.0" prefWidth="311.0" promptText="lista Edycji" />
+      <Button fx:id="btn_chooseEdition" layoutX="466.0" layoutY="326.0" mnemonicParsing="false" onMouseClicked="#showEditionsInTable" text="Wybierz Edycję" />
+      <Label fx:id="lbl_chooseEdition" layoutX="176.0" layoutY="363.0" text="Wybierz Edycję z listy rozwijanej powyżej" textFill="#dd1616" visible="false">
          <font>
             <Font size="13.0" />
          </font>
