@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-public class PotwPytanieController {
+public class ConfirmQuestionController {
 	public DBConnector db;
 
 	@FXML
@@ -29,28 +29,28 @@ public class PotwPytanieController {
 	private Label lbl_e4;
 
 	@FXML
-	private Label lbl_pyt;
+	private Label lbl_question;
 
 	@FXML
-	private Label lbl_odp1;
+	private Label lbl_answer1;
 
 	@FXML
-	private Label lbl_odp2;
+	private Label lbl_answer2;
 
 	@FXML
-	private Label lbl_odp3;
+	private Label lbl_answer3;
 
 	@FXML
-	private Label lbl_odp4;
+	private Label lbl_answer4;
 
 	@FXML
-	private Label lbl_zakres;
+	private Label lbl_domain;
 
 	@FXML
-	private Button btn_zatwierdz;
+	private Button btn_confirm;
 
 	@FXML
-	private Button btn_anuluj;
+	private Button btn_cancel;
 
 	@FXML
 	void anuluj(MouseEvent event) {
@@ -64,9 +64,9 @@ public class PotwPytanieController {
 		Statement stmt = con.createStatement();
 		
 		stmt.executeUpdate("Insert into Pytania (zakres, pytanie, odp_1, odp_2, odp_3, odp_4, odp_poprawna) values ('"
-				+ DodPytController.zakres + "', '" + DodPytController.pyt + "', '" + DodPytController.odp1 + "', '"
-				+ DodPytController.odp2 + "', '" + DodPytController.odp3 + "', '" + DodPytController.odp4 + "', "
-				+ DodPytController.poprawna + ")");
+				+ AddQuestionController.domain + "', '" + AddQuestionController.question + "', '" + AddQuestionController.answer1 + "', '"
+				+ AddQuestionController.answer2 + "', '" + AddQuestionController.answer3 + "', '" + AddQuestionController.answer4 + "', "
+				+ AddQuestionController.correct_answer_number + ")");
 		con.close();
 		
 		Alert ostrz = new Alert(AlertType.INFORMATION);
@@ -83,30 +83,30 @@ public class PotwPytanieController {
 	public void initialize() {
 		db = new DBConnector();
 		
-		lbl_pyt.setText(DodPytController.pyt);
-		lbl_odp1.setText(DodPytController.odp1);
-		lbl_odp2.setText(DodPytController.odp2);
-		lbl_odp3.setText(DodPytController.odp3);
-		lbl_odp4.setText(DodPytController.odp4);
-		lbl_zakres.setText(DodPytController.zakres);
+		lbl_question.setText(AddQuestionController.question);
+		lbl_answer1.setText(AddQuestionController.answer1);
+		lbl_answer2.setText(AddQuestionController.answer2);
+		lbl_answer3.setText(AddQuestionController.answer3);
+		lbl_answer4.setText(AddQuestionController.answer4);
+		lbl_domain.setText(AddQuestionController.domain);
 
-		switch (DodPytController.poprawna) {
+		switch (AddQuestionController.correct_answer_number) {
 		case 1:
 			lbl_e1.setText("Poprawna odpowiedü");
-			lbl_odp1.setUnderline(true);
+			lbl_answer1.setUnderline(true);
 			break;
 
 		case 2:
 			lbl_e2.setText("Poprawna odpowiedü");
-			lbl_odp2.setUnderline(true);
+			lbl_answer2.setUnderline(true);
 			break;
 		case 3:
 			lbl_e3.setText("Poprawna odpowiedü");
-			lbl_odp3.setUnderline(true);
+			lbl_answer3.setUnderline(true);
 			break;
 		case 4:
 			lbl_e4.setText("Poprawna odpowiedü");
-			lbl_odp4.setUnderline(true);
+			lbl_answer4.setUnderline(true);
 			break;
 		}
 	}

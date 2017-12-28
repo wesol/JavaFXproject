@@ -10,7 +10,7 @@ import javafx.scene.input.InputEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Pomocnicze {
+public class ComponentClass {
 
 	public void okno(String sciezka, String naglowek) throws IOException {
 		Stage stage = new Stage();

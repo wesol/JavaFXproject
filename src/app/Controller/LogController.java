@@ -32,7 +32,7 @@ public class LogController {
 	private PasswordField pf_password;
 
 	DBConnector db;
-	public static String a;
+	public static String role;
 	public static String login;
 
 	@FXML
@@ -45,16 +45,16 @@ public class LogController {
 				"SELECT rola FROM logowanie WHERE login='" + login + "' and haslo='" + pf_password.getText() + "'");
 
 		if (rs.next()) {
-			a = rs.getString("rola");
-			if (a.equals("kursant")) {
+			role = rs.getString("rola");
+			if (role.equals("kursant")) {
 				Stage stage = new Stage();
-				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/WyborTestuView.fxml"));
+				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/TestChoiceView.fxml"));
 				Scene scene = new Scene(parent);
 				stage.setScene(scene);
 				stage.setTitle("Wybór zakresu testu");
 				stage.show();
 				((Node) (event.getSource())).getScene().getWindow().hide();
-			} else if (a.equals("egzaminator")) {
+			} else if (role.equals("egzaminator")) {
 				Stage stage = new Stage();
 				Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/AdminView.fxml"));
 				Scene scene = new Scene(parent);
