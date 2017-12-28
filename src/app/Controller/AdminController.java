@@ -11,44 +11,44 @@ public class AdminController {
 
 
 	@FXML
-	Button btn_dodpyt;
+	Button btn_addQuestion;
 
 	@FXML
-	Button btn_wyjdz;
+	Button btn_exit;
 
 	@FXML
-	Button btn_listakurs;
+	Button btn_courseList;
 
-	@FXML Tooltip tt_wyjd;
+	@FXML Tooltip tt_exit;
 
-	@FXML Button btn_statKursantow;
+	@FXML Button btn_studentsStats;
 
-	@FXML Button btn_statEdycji;
+	@FXML Button btn_editionStats;
 
 
 	@FXML
-	void przejdzBaza(MouseEvent event) throws IOException {
-		Pomocnicze przejdz = new Pomocnicze();
-		przejdz.okno("/app/View/DodPytView.fxml", "Dodanie pytania", event);
+	void goToAddQuestion(MouseEvent event) throws IOException {
+		ComponentClass przejdz = new ComponentClass();
+		przejdz.okno("/app/View/AddQuestionView.fxml", "Dodanie pytania", event);
 
 	}
 
 	@FXML
-	void przejdzKursanci(MouseEvent event) throws IOException {
-		Pomocnicze przejdz = new Pomocnicze();
-		przejdz.okno("/app/View/StatKursanciView.fxml", "Statystyki Kursantów", event);
+	void goToStudents(MouseEvent event) throws IOException {
+		ComponentClass przejdz = new ComponentClass();
+		przejdz.okno("/app/View/StudentsStatsView.fxml", "Statystyki Kursantów", event);
 
 	}
 
 	@FXML
-	void przejdzEdycje(MouseEvent event) throws IOException {
-		Pomocnicze przejdz = new Pomocnicze();
-		przejdz.okno("/app/View/StatEdycjeView.fxml", "Statystyki Edycji", event);
+	void goToEditions(MouseEvent event) throws IOException {
+		ComponentClass przejdz = new ComponentClass();
+		przejdz.okno("/app/View/EditionsStatsView.fxml", "Statystyki Edycji", event);
 	}
 	
 	@FXML
-	void wyjdz(MouseEvent event) throws IOException {
-		Pomocnicze przejdz = new Pomocnicze();
+	void exit(MouseEvent event) throws IOException {
+		ComponentClass przejdz = new ComponentClass();
 		przejdz.okno("/app/View/LogView.fxml", "Logowanie", event);
 	}
 

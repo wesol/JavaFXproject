@@ -9,11 +9,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.TestController">
    <children>
-      <Label fx:id="lb_nrPytania" layoutX="47.0" layoutY="45.0" prefHeight="44.0" prefWidth="358.0">
+      <Label fx:id="lb_questionNumber" layoutX="47.0" layoutY="45.0" prefHeight="44.0" prefWidth="358.0">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label fx:id="lb_trescPytania" layoutX="47.0" layoutY="124.0" prefHeight="133.0" prefWidth="595.0" wrapText="true">
+      <Label fx:id="lb_questionContents" layoutX="47.0" layoutY="124.0" prefHeight="133.0" prefWidth="595.0" wrapText="true">
          <font>
             <Font size="19.0" />
          </font></Label>
@@ -37,6 +37,6 @@
          <font>
             <Font size="13.0" />
          </font></RadioButton>
-      <Button fx:id="bt_zatwierdz" layoutX="47.0" layoutY="485.0" mnemonicParsing="false" onMouseClicked="#buttonZatwierdz" prefHeight="34.0" prefWidth="84.0" text="Odpowiedz" />
+      <Button fx:id="btn_confirm" layoutX="47.0" layoutY="485.0" mnemonicParsing="false" onMouseClicked="#confirm" prefHeight="34.0" prefWidth="84.0" text="Odpowiedz" />
    </children>
 </AnchorPane>
