@@ -1,6 +1,6 @@
 package app.Model;
 
-public class Edycja {
+public class Editing {
 	
 	private String edycja;
 	private Integer procent;
@@ -16,12 +16,12 @@ public class Edycja {
 	public void setProcent(Integer procent) {
 		this.procent = procent;
 	}
-	public Edycja(String edycja, Integer procent) {
+	public Editing(String edycja, Integer procent) {
 		super();
 		this.edycja = edycja;
 		this.procent = procent;
 	}
-	public Edycja(String edycja) {
+	public Editing(String edycja) {
 		super();
 		this.edycja = edycja;
 	}

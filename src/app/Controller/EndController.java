@@ -16,26 +16,26 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class KoniecController {
+public class EndController {
 
 	@FXML
-	Label lbl_il_poprawnych;
+	Label lbl_quantityOfCorrect;
 	@FXML
-	Label lbl_proc_poprawnych;
+	Label lbl_percentOfCorrect;
 	
 	@FXML
-	private Button bt_powrot;
+	private Button btn_back;
 
 	DBConnector db;
 	public void initialize() throws SQLException, IOException {
 		String uzytkownik = String.valueOf(LogController.login);
-		//wyœwietlenie statystyk na widoku
-		lbl_il_poprawnych.setText("" + TestController.il_odp_poprawnych);
-		double procent = (double) (((double) TestController.il_odp_poprawnych / (double) TestController.il_pytan)
+		//show stats
+		lbl_quantityOfCorrect.setText("" + TestController.quantityOfCorrect);
+		double procent = (double) (((double) TestController.quantityOfCorrect / (double) TestController.quantityOfQuestions)
 				* 100);
-		lbl_proc_poprawnych.setText(procent + "%");
+		lbl_percentOfCorrect.setText(procent + "%");
 		
-		//dodanie wyniku do tabeli statystyki
+		//add result to database
 		db = new DBConnector();
 		Connection conn = db.Connection();
 		PreparedStatement ps = conn.prepareStatement(
@@ -45,7 +45,7 @@ public class KoniecController {
 	}
 	
 	@FXML
-    void buttonClickPowrot(MouseEvent event) throws IOException {
+    void back(MouseEvent event) throws IOException {
 		Stage stage = new Stage();
 		Parent parent = (Parent) FXMLLoader.load(getClass().getResource("/app/View/LogView.fxml"));
 		Scene scene = new Scene(parent);

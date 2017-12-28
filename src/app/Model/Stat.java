@@ -7,6 +7,15 @@ public class Stat {
 	private int ilosc;
 	private double poprawne;
 
+	public Stat(String name, String last, double poprawne) {
+		super();
+		this.name = name;
+		this.last = last;
+		this.poprawne = poprawne;
+	}
+
+	
+
 	public Stat(String name, String last, String group, int ilosc, double poprawne) {
 		super();
 		this.name = name;
@@ -15,18 +24,8 @@ public class Stat {
 		this.ilosc = ilosc;
 		this.poprawne = poprawne;
 	}
-	
-	public Stat(String name, String last, double poprawne) {
-		super();
-		this.name = name;
-		this.poprawne = poprawne;
-	}
 
-	public Stat(String name, double poprawne) {
-		super();
-		this.name = name;
-		this.poprawne = poprawne;
-	}
+
 
 	public String getName() {
 		return name;
@@ -67,5 +66,6 @@ public class Stat {
 	public void setPoprawne(double poprawne) {
 		this.poprawne = poprawne;
 	}
-
+	
+	
 }

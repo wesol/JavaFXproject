@@ -12,15 +12,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.StatKursanciController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.StudentsStatsController">
    <children>
       <TableView fx:id="table_Stat" layoutX="42.0" layoutY="101.0" prefHeight="257.0" prefWidth="645.0" AnchorPane.bottomAnchor="437.0" AnchorPane.topAnchor="101.0">
         <columns>
-          <TableColumn fx:id="col_imie" minWidth="100.0" prefWidth="118.0" text="Imie" />
-          <TableColumn fx:id="col_nazwisko" minWidth="82.0" prefWidth="106.0" text="Nazwisko" />
-            <TableColumn fx:id="col_grupa" minWidth="100.0" prefWidth="200.0" text="Edycja" />
-            <TableColumn fx:id="col_liczbaTest" minWidth="53.0" prefWidth="101.0" text="Liczba Testów" />
-            <TableColumn fx:id="col_sredni" minWidth="57.0" prefWidth="109.0" text="Średni wynik [%]" />
+          <TableColumn fx:id="col_name" minWidth="100.0" prefWidth="118.0" text="Imie" />
+          <TableColumn fx:id="col_last" minWidth="82.0" prefWidth="106.0" text="Nazwisko" />
+            <TableColumn fx:id="col_group" minWidth="100.0" prefWidth="200.0" text="Edycja" />
+            <TableColumn fx:id="col_testNumber" minWidth="53.0" prefWidth="101.0" text="Liczba Testów" />
+            <TableColumn fx:id="col_avg" minWidth="57.0" prefWidth="109.0" text="Średni wynik [%]" />
         </columns>
          <tooltip>
             <Tooltip text="Lista kursantów" />
@@ -37,16 +37,16 @@
          </font>
       </Label>
       <Label layoutX="46.0" layoutY="330.0" text="Szukaj kursanta:" />
-      <Button fx:id="btn_wstecz" layoutX="274.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#buttonExit" prefHeight="41.0" prefWidth="155.0" text="Powrót do Menu" />
-      <TableView fx:id="table_StatPom" layoutX="42.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="163.0" prefWidth="232.0" visible="false">
+      <Button fx:id="btn_back" layoutX="274.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#buttonExit" prefHeight="41.0" prefWidth="155.0" text="Powrót do Menu" />
+      <TableView fx:id="table_StatHelp" layoutX="42.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="163.0" prefWidth="232.0" visible="false">
         <columns>
-          <TableColumn fx:id="col_imiePom" prefWidth="75.0" text="Imię" />
-          <TableColumn fx:id="col_nazwiskoPom" prefWidth="75.0" text="Nazwisko" />
-            <TableColumn fx:id="col_wynik" prefWidth="75.0" text="Wynik [%]" />
+          <TableColumn fx:id="col_nameHelp" prefWidth="75.0" text="Imię" />
+          <TableColumn fx:id="col_lastHelp" prefWidth="75.0" text="Nazwisko" />
+            <TableColumn fx:id="col_result" prefWidth="75.0" text="Wynik [%]" />
         </columns>
       </TableView>
-      <Button fx:id="btn_pom" layoutX="42.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#wyswietlPom" text="Wyświetl szczegółowe wyniki" />
-      <BarChart fx:id="bar_statPom" layoutX="305.0" layoutY="429.0" legendVisible="false" prefHeight="209.0" prefWidth="366.0" visible="false">
+      <Button fx:id="btn_help" layoutX="42.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#showHelp" text="Wyświetl szczegółowe wyniki" />
+      <BarChart fx:id="bar_statHelp" layoutX="305.0" layoutY="429.0" legendVisible="false" prefHeight="209.0" prefWidth="366.0" visible="false">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import app.Database.DBConnector;
-import app.Model.Edycja;
+import app.Model.Editing;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,22 +23,28 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-public class StatEdycjeController {
+public class EditionsStatsController {
 
 	@FXML
-	private TableView<Edycja> table_stat;
+	private TableView<Editing> table_stat;
 
 	@FXML
-	private TableColumn<Edycja, String> col_edycja;
+	private TableColumn<Editing, String> col_edition;
 
 	@FXML
-	private TableColumn<Edycja, Integer> col_procent;
+	private TableColumn<Editing, Integer> col_percent;
 
 	@FXML
-	private Button btn_wyborEdycji;
+	private Button btn_chooseEdition;
 
 	@FXML
-	private TextField tf_wyborEdycji;
+	private TextField tf_chooseEdition;
+
+	@FXML
+	Label lbl_chooseEdition;
+
+	@FXML
+	Button btn_exit;
 
 	@FXML
 	BarChart<String, Integer> bar_chart;
@@ -50,27 +56,19 @@ public class StatEdycjeController {
 	NumberAxis bar_Y;
 
 	@FXML
-	ComboBox<String> cb_wybierzEdycje;
+	ComboBox<String> cb_chooseEdition;
 
 	@FXML
-	Button btn_wszystkieEdycje;
-
-	@FXML
-	Button btn_wybierzEdycje;
+	Button btn_allEdition;
 
 	DBConnector db;
 	public ObservableList<String> edycje;
-	public ObservableList<Edycja> data;
+	public ObservableList<Editing> data;
 	private MouseEvent event;
 
 	@FXML
-	Label lbl_wybierzEdycje;
-
-	@FXML Button btn_exit;
-
-	@FXML
-	public void wszystkieEdycje(MouseEvent event) throws SQLException {
-		lbl_wybierzEdycje.setVisible(false);
+	public void allEditions(MouseEvent event) throws SQLException {
+		lbl_chooseEdition.setVisible(false);
 		Connection conn = db.Connection();
 		data = FXCollections.observableArrayList();
 
@@ -82,7 +80,7 @@ public class StatEdycjeController {
 						+ "order by edycja;");
 
 		while (rs.next()) {
-			data.add(new Edycja(rs.getString(1), rs.getInt(2)));
+			data.add(new Editing(rs.getString(1), rs.getInt(2)));
 			series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getInt(2)));
 		}
 
@@ -92,8 +90,8 @@ public class StatEdycjeController {
 			series.getData().add(new XYChart.Data<>(srednie.getString(1), srednie.getInt(2)));
 		}
 
-		col_edycja.setCellValueFactory(new PropertyValueFactory<Edycja, String>("edycja"));
-		col_procent.setCellValueFactory(new PropertyValueFactory<Edycja, Integer>("procent"));
+		col_edition.setCellValueFactory(new PropertyValueFactory<Editing, String>("edycja"));
+		col_percent.setCellValueFactory(new PropertyValueFactory<Editing, Integer>("procent"));
 		table_stat.setItems(null);
 		table_stat.setItems(data);
 
@@ -104,8 +102,8 @@ public class StatEdycjeController {
 	}
 
 	@FXML
-	public void zaladujEdycje(MouseEvent event) throws SQLException {
-		lbl_wybierzEdycje.setVisible(false);
+	public void editionLoad(MouseEvent event) throws SQLException {
+		lbl_chooseEdition.setVisible(false);
 		Connection conn = db.Connection();
 
 		edycje = FXCollections.observableArrayList();
@@ -114,34 +112,34 @@ public class StatEdycjeController {
 		while (rs_edycje.next()) {
 			edycje.add(rs_edycje.getString(1));
 		}
-		cb_wybierzEdycje.setItems(edycje);
+		cb_chooseEdition.setItems(edycje);
 		conn.close();
 	}
 
 	@FXML
-	public void wyswietlEdycjeWTabeli(MouseEvent event) throws SQLException {
+	public void showEditionsInTable(MouseEvent event) throws SQLException {
 		Connection conn = db.Connection();
 		XYChart.Series<String, Integer> series = new XYChart.Series<>();
 		data = FXCollections.observableArrayList();
 
-		if (!(cb_wybierzEdycje.getValue() == null)) {
-			lbl_wybierzEdycje.setVisible(false);
+		if (!(cb_chooseEdition.getValue() == null)) {
+			lbl_chooseEdition.setVisible(false);
 
 			ResultSet rs_wybranaEdycja = conn.createStatement().executeQuery(
 					"select kursant.edycja, round(sum(statystyki.procent_poprawnych)/count(statystyki.id)) from statystyki\r\n"
 							+ "join kursant on kursant.login = statystyki.login where kursant.edycja = '"
-							+ cb_wybierzEdycje.getValue().toString() + "';");
+							+ cb_chooseEdition.getValue().toString() + "';");
 
 			while (rs_wybranaEdycja.next()) {
-				data.add(new Edycja(rs_wybranaEdycja.getString(1), rs_wybranaEdycja.getInt(2)));
+				data.add(new Editing(rs_wybranaEdycja.getString(1), rs_wybranaEdycja.getInt(2)));
 				series.getData().add(new XYChart.Data<>(rs_wybranaEdycja.getString(1), rs_wybranaEdycja.getInt(2)));
 			}
-			col_edycja.setCellValueFactory(new PropertyValueFactory<Edycja, String>("edycja"));
-			col_procent.setCellValueFactory(new PropertyValueFactory<Edycja, Integer>("procent"));
+			col_edition.setCellValueFactory(new PropertyValueFactory<Editing, String>("edycja"));
+			col_percent.setCellValueFactory(new PropertyValueFactory<Editing, Integer>("procent"));
 			table_stat.setItems(null);
 			table_stat.setItems(data);
 
-			// WYKRES: dodanie s³upka œredniej wyników do wykresu
+			// Chart: adding average column to chart
 			ResultSet srednie = conn.createStatement()
 					.executeQuery("select 'œrednia', round(sum(procent_poprawnych)/count(id)) from statystyki;");
 			while (srednie.next()) {
@@ -152,21 +150,21 @@ public class StatEdycjeController {
 
 			conn.close();
 		} else {
-			lbl_wybierzEdycje.setVisible(true);
+			lbl_chooseEdition.setVisible(true);
 		}
 	}
 
-
-	@FXML public void buttonExit(MouseEvent event) throws IOException {
-		Pomocnicze przejdz = new Pomocnicze();
-		przejdz.okno("/app/View/AdminView.fxml", "Panel Egzaminatora", event);
+	@FXML
+	public void buttonExit(MouseEvent event) throws IOException {
+		ComponentClass goTo = new ComponentClass();
+		goTo.okno("/app/View/AdminView.fxml", "Panel Egzaminatora", event);
 	}
-	
+
 	@FXML
 	public void initialize() throws SQLException {
 		db = new DBConnector();
-		wszystkieEdycje(event);
-		zaladujEdycje(event);
+		allEditions(event);
+		editionLoad(event);
 	}
 
 }
